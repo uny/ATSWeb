@@ -31,6 +31,14 @@
   var IMG_NODE_IDS = ['https-img', 'http-img'];
   IMG_NODE_IDS.forEach(function(element, index) {
     var node = document.getElementById(element).getElementsByTagName('td')[1];
-    node.innerHTML = `<img alt="Swift" src="${IMG_SRCS[index]}">`
+    node.innerHTML = `<img alt="Swift" src="${IMG_SRCS[index]}">`;
+  });
+
+  // A
+  var A_HREFS = [`https://${BASE_URL}`, `http://${BASE_URL}`];
+  var A_NODE_IDS = ['https-a', 'http-a'];
+  A_NODE_IDS.forEach(function(element, index) {
+    var node = document.getElementById(element).getElementsByTagName('td')[1];
+    node.innerHTML = `<a href="${A_HREFS[index]}">LINK</a>`;
   });
 })();
