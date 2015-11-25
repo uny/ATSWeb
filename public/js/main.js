@@ -19,11 +19,7 @@
       if (xhr.readyState != 4) {
         return;
       }
-      if (xhr.status == 200) {
-        node.innerHTML = xhr.responseText;
-      } else {
-        node.innerHTML = xhr.statusText;
-      }
+      node.innerHTML = xhr.responseText;
     };
     xhr.open('GET', AJAX_URLS[index], true);
     xhr.send();
@@ -49,7 +45,10 @@
   // CSS
   var CSS_HREFS = [`https://${BASE_URL}/css/https.css`, `http://${BASE_URL}/css/http.css`];
   CSS_HREFS.forEach(function(element) {
-    document.body.innerHTML += `<link rel="stylesheet" href="${element}">`;
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = element;
+    document.body.appendChild(link);
   });
 
   // JavaScript
