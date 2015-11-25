@@ -48,7 +48,15 @@
 
   // CSS
   var CSS_HREFS = [`https://${BASE_URL}/css/https.css`, `http://${BASE_URL}/css/http.css`];
-  CSS_HREFS.forEach(function(element, index) {
-    document.body.innerHTML += `<link rel="stylesheet" href="${CSS_HREFS[index]}">`;
+  CSS_HREFS.forEach(function(element) {
+    document.body.innerHTML += `<link rel="stylesheet" href="${element}">`;
+  });
+
+  // JavaScript
+  var JS_SRCS = [`https://${BASE_URL}/js/https.js`, `http://${BASE_URL}/js/http.js`];
+  JS_SRCS.forEach(function(element) {
+    var script = document.createElement('script');
+    script.src = element;
+    document.body.appendChild(script);
   });
 })();
